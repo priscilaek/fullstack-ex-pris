@@ -13,6 +13,8 @@ app.use(cors())
 app.use(express.json())
 dotenv.config()
 
+const port = process.env.BASE_URL_PORT || 3005
+
 // 3. RUTAS
 
 // PROD: https://midominio.com/
@@ -21,6 +23,4 @@ app.use("/api/v1/users", userRoute)
 app.use("/api/v1/cars", carRoute)
 
 // 4. LEVANTAMIENTO DEL SERVIDOR
-app.listen(process.env.BASE_URL_PORT, () =>
-  console.log("Servidor está activo.")
-)
+app.listen(port, () => console.log("Servidor está activo."))
