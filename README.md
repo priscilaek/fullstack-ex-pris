@@ -4,6 +4,15 @@
 
 ## SERVER
 
+- npm init --yes
+- Importante: generar el .gitignore de entrada
+
+`.gitignore`
+```
+node_modules/
+.env
+```
+
 - Dependencias
     - Express
     - Nodemon
