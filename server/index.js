@@ -12,12 +12,15 @@ import { fileURLToPath } from "url"
 import userRoute from "./routes/users.js"
 import carRoute from "./routes/cars.js"
 import pizzaRoute from "./routes/pizzas.js"
+import connectDB from "./config/db.js"
 
 // 2. INICIALIZADORES
 const app = express()
 app.use(cors())
 app.use(express.json())
 dotenv.config()
+
+connectDB()
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
