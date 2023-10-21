@@ -11,6 +11,7 @@ import { fileURLToPath } from "url"
 // B. ARCHIVOS
 import userRoute from "./routes/users.js"
 import carRoute from "./routes/cars.js"
+import pizzaRoute from "./routes/pizzas.js"
 
 // 2. INICIALIZADORES
 const app = express()
@@ -43,6 +44,7 @@ const swaggerDocs = swaggerJSDoc(swaggerOptions)
 // DEV: localhost:3005/
 app.use("/api/v1/users", userRoute)
 app.use("/api/v1/cars", carRoute)
+app.use("/api/v1/pizzas", pizzaRoute)
 
 // B. DOCUMENTACIÓN
 app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
