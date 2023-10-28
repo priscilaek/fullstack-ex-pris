@@ -1,14 +1,4 @@
-// OPCIONAL (LUEGO SE INTERCAMBIARÁ POR UNA BASE DE DATOS)
-let data = [
-  {
-    id: 1,
-    nombre: "Mike",
-  },
-  {
-    id: 2,
-    nombre: "Ramiro",
-  },
-]
+import User from "./../models/User.js"
 
 const readAll = (req, res) => {
   res.json({
@@ -17,6 +7,20 @@ const readAll = (req, res) => {
   })
 }
 
+const create = async (req, res) => {
+  const { name } = req.body
+
+  const newUser = await User.create({
+    name,
+  })
+
+  res.json({
+    msg: "Usuario creado con éxito",
+    data: newUser,
+  })
+}
+
 export default {
   readAll,
+  create,
 }
