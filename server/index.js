@@ -1,3 +1,5 @@
+// ./server/index.js
+
 // 1. IMPORTACIONES
 // A. LIBRERÍAS
 import express from "express"
@@ -12,6 +14,7 @@ import { fileURLToPath } from "url"
 import userRoute from "./routes/users.js"
 import carRoute from "./routes/cars.js"
 import pizzaRoute from "./routes/pizzas.js"
+import toppingsRoute from "./routes/toppings.js"
 import connectDB from "./config/db.js"
 
 // 2. INICIALIZADORES
@@ -48,6 +51,7 @@ const swaggerDocs = swaggerJSDoc(swaggerOptions)
 app.use("/api/v1/users", userRoute)
 app.use("/api/v1/cars", carRoute)
 app.use("/api/v1/pizzas", pizzaRoute)
+app.use("/api/v1/toppings", toppingsRoute)
 
 // B. DOCUMENTACIÓN
 app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
