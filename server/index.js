@@ -15,6 +15,7 @@ import userRoute from "./routes/users.js"
 import carRoute from "./routes/cars.js"
 import pizzaRoute from "./routes/pizzas.js"
 import toppingsRoute from "./routes/toppings.js"
+import checkoutRoute from "./routes/checkout.js"
 import connectDB from "./config/db.js"
 
 // 2. INICIALIZADORES
@@ -52,6 +53,7 @@ app.use("/api/v1/users", userRoute)
 app.use("/api/v1/cars", carRoute)
 app.use("/api/v1/pizzas", pizzaRoute)
 app.use("/api/v1/toppings", toppingsRoute)
+app.use("/api/v1/checkout", checkoutRoute)
 
 // B. DOCUMENTACIÓN
 app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
