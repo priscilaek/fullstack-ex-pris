@@ -1,6 +1,7 @@
 import User from "./../models/User.js"
 import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
+import Cart from "./../models/Cart.js"
 
 const readAll = (req, res) => {
   res.json({
@@ -10,19 +11,25 @@ const readAll = (req, res) => {
 }
 
 const create = async (req, res) => {
-  const { name, email, password } = req.body
+  const { name, lastname, email, password } = req.body
 
   // 1. CAPA DE CONTRASEÑA
   // ESTABLECER EL NIVEL DE DIFICULTAD DE ENCRIPTAMIENTO DEL PASSWORD
   const salt = await bcryptjs.genSalt(10)
 
+  // 1A. CREAR CARRITO DE COMPRAS
+  const newCart = await Cart.create()
+
   // ENCRIPTAR EL PASSWORD
   const hashedPassword = await bcryptjs.hash(password, salt)
+  console.log("hashedPassword", hashedPassword)
 
   const newUser = await User.create({
     name,
+    lastname,
     email,
     password: hashedPassword,
+    cart: newCart,
   })
 
   // CAPA DE SEGURIDAD JWT
