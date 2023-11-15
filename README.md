@@ -17,7 +17,7 @@ node_modules/
     - Express
     - Nodemon
     - CORS. Librería que permite abrir permisos a conexiones de terceros.
-
+    - Stripe
 
 
 CÓDIGOS DE RESPUESTA EN SERVER
